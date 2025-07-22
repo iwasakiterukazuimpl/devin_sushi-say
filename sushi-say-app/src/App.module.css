@@ -1,0 +1,99 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+  justify-content: center;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-weight: normal;
+}
+
+.mainTitle {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(135deg, #ff4444, #ff8844);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.inputSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.textInput {
+  width: 400px;
+  height: 50px;
+  border: 2px solid #ff4444;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: #faf8f5;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textInput::placeholder {
+  color: #999;
+}
+
+.textInput:focus {
+  border-color: #ff6666;
+}
+
+.sendButton {
+  height: 50px;
+  padding: 0 30px;
+  background: linear-gradient(135deg, #ff6644, #ff4444);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.sendButton:hover {
+  transform: translateY(-1px);
+}
+
+.sendButton:active {
+  transform: translateY(0);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 20px;
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+}
