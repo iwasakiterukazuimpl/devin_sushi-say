@@ -28,8 +28,16 @@ function App() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.titleSection}>
-            <h1 className={styles.mainTitle}>送信完了！</h1>
+            <h1 className={styles.completionTitle}>送信されました！</h1>
+            <h2 className={styles.submittedContent}>{inputValue}</h2>
           </div>
+          
+          <button 
+            className={styles.topButton}
+            onClick={() => setCurrentScreen('top')}
+          >
+            TOP
+          </button>
         </div>
         
         <footer className={styles.footer}>
