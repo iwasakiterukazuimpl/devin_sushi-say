@@ -26,8 +26,12 @@
 
 .sendingText {
   font-size: 48pt;
-  color: #EC1616;
   font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #EC1616, #F48A19);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: 'Noto Sans JP', sans-serif;
   text-align: center;
 }
