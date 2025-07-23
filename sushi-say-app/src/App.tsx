@@ -10,9 +10,36 @@ function App() {
     setInputValue(e.target.value)
   }
 
-  const handleSendClick = () => {
+  const handleSendClick = async () => {
     console.log('Send clicked:', inputValue)
     setCurrentScreen('sending')
+    
+    try {
+      const response = await fetch('http://localhost:3001/say', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: inputValue }),
+      })
+      
+      if (response.ok) {
+        const data = await response.json()
+        console.log('API response:', data)
+        setTimeout(() => {
+          setCurrentScreen('complete')
+        }, 2000)
+      } else {
+        const errorData = await response.json()
+        console.error('API error:', errorData)
+        alert(`エラー: ${errorData.error}`)
+        setCurrentScreen('top')
+      }
+    } catch (error) {
+      console.error('Network error:', error)
+      alert('ネットワークエラーが発生しました')
+      setCurrentScreen('top')
+    }
   }
 
   const handleSendingComplete = () => {
