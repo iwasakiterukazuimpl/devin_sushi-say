@@ -10,31 +10,9 @@ function App() {
     setInputValue(e.target.value)
   }
 
-  const handleSendClick = async () => {
+  const handleSendClick = () => {
     console.log('Send clicked:', inputValue)
     setCurrentScreen('sending')
-    
-    try {
-      const response = await fetch('http://localhost:3001/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: inputValue }),
-      })
-      
-      const result = await response.json()
-      console.log('API response:', result)
-      
-      setTimeout(() => {
-        setCurrentScreen('complete')
-      }, 2000)
-    } catch (error) {
-      console.error('Error sending to API:', error)
-      setTimeout(() => {
-        setCurrentScreen('complete')
-      }, 2000)
-    }
   }
 
   const handleSendingComplete = () => {
