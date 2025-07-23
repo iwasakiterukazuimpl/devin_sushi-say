@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import styles from './App.module.css'
+import SendingScreen from './SendingScreen'
 
 function App() {
   const [inputValue, setInputValue] = useState('')
+  const [currentScreen, setCurrentScreen] = useState<'top' | 'sending' | 'complete'>('top')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
@@ -10,6 +12,31 @@ function App() {
 
   const handleSendClick = () => {
     console.log('Send clicked:', inputValue)
+    setCurrentScreen('sending')
+  }
+
+  const handleSendingComplete = () => {
+    setCurrentScreen('complete')
+  }
+
+  if (currentScreen === 'sending') {
+    return <SendingScreen onComplete={handleSendingComplete} />
+  }
+
+  if (currentScreen === 'complete') {
+    return (
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.titleSection}>
+            <h1 className={styles.mainTitle}>送信完了！</h1>
+          </div>
+        </div>
+        
+        <footer className={styles.footer}>
+          ©impl - Business engineer team
+        </footer>
+      </div>
+    )
   }
 
   return (
